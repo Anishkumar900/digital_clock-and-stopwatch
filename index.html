@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Digital_colck</title>
+<link rel="stylesheet" href="stopwatch.css">
+<script src="stopwatch.js" type="text/javascript"></script>
+
+</head>
+<body >
+<div class="digital-clock">
+    <div class="time">
+        <div class="left-side">
+            <span id="hours">00</span>
+            <div class="right-side">
+                <div class="right-top">
+                    <span id="dots">:</span>
+                    <span id="minutes">00</span>
+                </div>
+                <div class="right-down">
+                    <span id="period">PM</span>
+                    <span id="seconds">00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="stopwatch">
+    <div class="stime">
+
+        <span id="m">00</span> 
+        <span id="d1">:</span>
+        <span id="s">00</span>
+        <span id="d2">:</span>
+        <span id="ms">00</span>
+    </div>
+    <div class="btn-all">
+        <button id="start" class="btn">START</button>
+        <button id="stop" class="btn">STOP</button>
+        <button id="reset" class="btn">RESET</button>
+
+    </div>
+
+</div>
+<script src="stopwatch.js" type="text/javascript"></script>
+<script>
+    function clock(){
+    let hours=document.getElementById('hours');
+    let minutes=document.getElementById('minutes');
+    let seconds=document.getElementById('seconds');
+    let period=document.getElementById('period');
+    let h=new Date().getHours();
+    let m=new Date().getMinutes();
+    let s=new Date().getSeconds();
+    let ampm = h >= 12 ? "PM" : "AM";
+    if(h>12){
+        h=h-12;
+    }
+    h=(h<10)?"0"+h:h;
+    m=(m<10)?"0"+m:m;
+    s=(s<10)?"0"+s:s;
+    hours.innerHTML=h;
+    minutes.innerHTML=m;
+    seconds.innerHTML=s;
+    period.innerHTML=ampm;
+
+
+};
+setInterval(clock,1000);
+</script>
+</body>
+</html>
